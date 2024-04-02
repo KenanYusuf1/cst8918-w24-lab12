@@ -7,10 +7,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name   = "Cst8918Laba12"
-    storage_account_name  = "cst8918kenanstorageacct1"
-    container_name        = "tfstate"
-    key                   = "terraform.tfstate"
+    resource_group_name  = "Cst8918Laba12"
+    storage_account_name = "cst8918kenanstorageacct1"
+    container_name       = "tfstate"
+    key                  = "terraform.tfstate"
   }
 }
 
@@ -51,6 +51,6 @@ output "container_name" {
 }
 
 output "primary_access_key" {
-  value = azurerm_storage_account.tfstate_sa.primary_access_key
+  value     = azurerm_storage_account.tfstate_sa.primary_access_key
   sensitive = true
 }
