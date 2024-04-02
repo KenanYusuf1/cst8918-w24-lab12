@@ -1,0 +1,37 @@
+name: Terraform Static Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform-static-tests:
+    name: Terraform Static Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init -backend=false
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Format
+        run: terraform fmt -check -recursive
+
+      - name: tfsec
+        uses: tfsec/tfsec-sarif-action@master
+        with:
+          sarif_file: tfsec.sarif
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: tfsec.sarif

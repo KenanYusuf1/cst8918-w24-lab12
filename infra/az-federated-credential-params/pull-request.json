@@ -1,0 +1,8 @@
+{
+    "name": "pull-request",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "subject": "repo:KenanYusuf1/cst8918-w24-lab12:pull_request",
+    "description": "CST8918 Lab12 - GitHub Actions for Pull Request",
+    "audiences": ["api://AzureADTokenExchange"]
+  }
+  
