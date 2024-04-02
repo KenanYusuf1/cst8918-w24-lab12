@@ -18,5 +18,9 @@ terraform {
 }
 
 provider "azurerm" {
+<<<<<<< HEAD
   features {}  # You can specify additional features if needed
+=======
+  features {}
+>>>>>>> dev
 }
