@@ -13,11 +13,10 @@ terraform {
     storage_account_name = "cst8918kenanstorageacct1"
     container_name       = "tfstate"
     key                  = "prod.app.tfstate"
-    use_oidc             = true
+    use_oidc             = true  # This line enables OIDC authentication for the backend
   }
 }
 
 provider "azurerm" {
-  features {}
-  use_oidc             = true
+  features {}  # You can specify additional features if needed
 }
